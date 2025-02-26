@@ -1,5 +1,7 @@
 
 {% extends "base.html" %}
-{% block se%}
-<h1>hello<h1>
-{%endblock se%}
+{% block section%}
+<h1>{{title}}
+    {% if description%}{{description}}
+    {%else%}discription comming soon{%endif%}<h1>
+{%endblock section%}

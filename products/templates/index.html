@@ -1,4 +1,9 @@
-
+{%extends "base.html"%}
+{%block section%}
 <h1>template rendered</h1>
 <h1>{{name}}</h1>
+{%for i in my_list%}
+<li>{{forloop.counter }}-{{i}}</li>
+{% endfor %}
+{%endblock %}
 
