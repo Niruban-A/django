@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Product
+from .forms import productForm
 
 
 # Create your views here.
@@ -13,3 +14,12 @@ def data_from_model(request):
     context={"title":obj.title,
              "description":obj.description}
     return render(request,"about.html",context)
+def enterdata(request):
+    form=productForm(request.POST or None)
+    if form.is_valid:
+        form.save
+        form=productForm()
+    context={"form":form
+
+    }
+    return render(request,"create.html",context)
