@@ -4,6 +4,7 @@ urlpatterns = [
     path('',views.home_page,name="homepage"),
     path("about/",views.about,name="aboutpage"),
     path("model_data/",views.data_from_model,name="data rendering"),
-    path("create/",views.enterdata,name="data saving")
+    path("create/",views.enterdata,name="data saving"),
+    path("rawform/",views.data_from_raw_form,name="rawform data writing")
 ]
 
