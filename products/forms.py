@@ -10,4 +10,9 @@ class rawform(forms.Form):
     price=forms.DecimalField()
     summary=forms.CharField()
     featured=forms.BooleanField()
-
+    def clean_title(self,*args, **kwargs):
+        title=self.cleaned_data.get("title")
+        if "cfe" in title:
+            return title
+        else:
+            raise forms.ValidationError("this is not a valid title")

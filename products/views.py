@@ -35,3 +35,9 @@ def data_from_raw_form(request):
         "my_forms":my_form
     }
     return render(request,"rawform.html",context)
+def dynamic_url_routing (request,my_id):
+    obj=Product.objects.get(id=my_id)
+    context={
+        "objects":obj
+    }
+    return render(request,"dynamic_rending.html",context)
