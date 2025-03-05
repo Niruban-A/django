@@ -14,8 +14,10 @@ def data_from_model(request):
     context={"title":obj.title,
              "description":obj.description}
     return render(request,"about.html",context)
-def enterdata(request):
-    form=productForm(request.POST or None)
+def enterdata(request,my_id):
+    initial_values={"title":"jupiter"}
+    obj= Product.objects.get(id=my_id)
+    form=productForm(request.POST or None,instance=obj)
     if form.is_valid():
         form.save
         form=productForm()
