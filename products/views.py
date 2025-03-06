@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import Product
 from .forms import productForm,rawform
@@ -43,3 +43,10 @@ def dynamic_url_routing (request,my_id):
         "objects":obj
     }
     return render(request,"dynamic_rending.html",context)
+def delete_database(request,my_id):
+    obj=get_object_or_404(Product,id=my_id)
+    if request.method=="POST":
+        obj.delete()
+        return redirect("/")
+    context={"objects":obj}
+    return render(request,"delete.html",context)

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block section %}
+<form method="POSTgit">
+    {% csrf_token %}
+    
+    <p>want to delete the database object</p>
+    <h1>{{objects.title}}</h1>
+    <input type="submit",value="save">
+    <a href="../">cancel</a>
+    <form>
+
+{% endblock section %}
+
