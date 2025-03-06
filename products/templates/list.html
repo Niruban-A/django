@@ -1,0 +1,6 @@
+<form>
+  {% for instance in objects  %}
+  <p>{{instance.title}}-<a href="{{instance.absolute_url}}">{{instance.id}}<a></p>
+  
+  {% endfor %}
+</form>

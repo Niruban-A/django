@@ -50,3 +50,8 @@ def delete_database(request,my_id):
         return redirect("/")
     context={"objects":obj}
     return render(request,"delete.html",context)
+def list_of_objects(request):
+    obj=Product.objects.all()
+    context={"objects":obj}
+    return render (request,"list.html",context)
+
